@@ -1,0 +1,30 @@
+
+/ import all packages
+const express = require('express');
+const app =express()
+const port = process.env.PORT || 3000
+
+//const port =3000
+//Respond with Hello World! on the homepage:
+//app.get('/',(req,res) => res.send("hello World"));
+//listen to the port
+app.listen(port,() => console.log (`example app is listeninng on port ${port}!`));
+ 
+//   app.get('/', function (req, res) {
+//     res.send(' Got a GET request Hello World!')
+//   });
+ //Respond to POST request on the root route (/), the application’s home page:
+
+//   app.post('/', function (req, res) => {
+//     res.send('Got a POST request')
+//   });
+
+//   //put 
+//   app.put('/', function(req,res) {
+//       res.send('Got a PUT request')
+//   })
+
+//   //delete
+//   app.delete('/', function (req,res) {
+//       res.send('Got a DELETE request')
+//   })
