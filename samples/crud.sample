@@ -1,0 +1,43 @@
+var express = require("express"),
+    bodyParser = require("body-parser"),
+    server = express();
+
+//body parser for parsing request body
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
+
+//temperary store for `players` in memory
+var players = [];
+
+//GET all players
+server.get('/players', function (req, res) {
+    res.json(players);
+});
+
+//GET the player with specified id
+server.get('/players/:id', function (req, res) {
+    res.json(players[req.params.id]);
+});
+
+//POST new player
+server.post('/player', function (req, res) {
+    players.push(req.body);
+    res.json(req.body);
+});
+
+//PUT edited item in-place of item with specified id
+server.put('/player/:id', function (req, res) {
+    players[req.params.id] = req.body
+    res.json(req.body);
+});
+
+//DELETE item with specified id
+server.delete('/player/:id', function (req, res) {
+    players.splice(req.params.id, 1)
+    res.json(req.body);
+});
+
+//START SERVER
+server.listen(3000, function () {
+    console.log("Server running");
+})

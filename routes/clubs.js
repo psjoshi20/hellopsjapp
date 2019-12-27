@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-// import dummy database
-let players = require("../dummydata");
+let clubs = require("../dummyuserdata");
 
 router.get("/list", async (req, res) => {
     try {
       res.status(200).json({
-        data: players
+        data: clubs
       });
     } catch (err) {
       res.status(400).json({
@@ -17,17 +16,17 @@ router.get("/list", async (req, res) => {
   });
 
   //
-//   GET a single-player details
-// We got the full player list. Now we need each player details. This can be done by passing the id of each player as the API parameter from the frontend.
+//   GET a single-club details
+// We got the full club list. Now we need each player details. This can be done by passing the id of each player as the API parameter from the frontend.
 
 // :id is the player_id passed as the URL parameter. It is used to find a single-player with the _id.
   router.get("/list/:id", async (req, res) => {
     let { id } = req.params;
     id = Number(id);
     try {
-      let player = players.find(player => player._id === id);
+      let club = clubs.find(club => club._id === id);
       res.status(200).json({
-        data: player
+        data: club
       });
     } catch (err) {
       res.status(400).json({
@@ -36,17 +35,13 @@ router.get("/list", async (req, res) => {
       });
     }
   });
+  module.exports = router;
 
-  //DELETE player with specified id
-  router.delete('/player/:id', function (req, res) {
-      players.splice(req.params.id, 1)
-      res.json(req.body);
-  });
   // var appRouter = function (app) {
   //   app.get("/", function(req, res) {
   //     res.status(200).send("Welcome to our restful API");
   //   });
   // }
-  
+  //module.exports =  router;
  // module.exports = appRouter;
-  module.exports = router;
+  

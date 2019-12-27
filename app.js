@@ -15,8 +15,9 @@ app.use(bodyParser.json());
 //import routes
 const playersRouter = require("./routes/players");
 app.use('/players', playersRouter);
-const appRouter = require("./routes/approuter");
-app.use('/app', appRouter);
+const clubsRouter = require("./routes/clubs");
+app.use('/clubs', clubsRouter);
+
 //Respond with Hello World! on the homepage:
 //app.get('/',(req,res) => res.send("hello World"));
 //listen to the port
