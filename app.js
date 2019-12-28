@@ -5,7 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const port = process.env.PORT || 3000
-
+const db= require("./db.js");
 //const port =3000
 app.use(logger('dev'));//  get log details of application 
 app.use(cors());// enable cross origin resources
@@ -19,6 +19,16 @@ const clubsRouter = require("./routes/clubs");
 app.use('/clubs', clubsRouter);
 const gamesRouter = require("./routes/games");
 app.use('/games', gamesRouter);
+//import db from './db/db';
+// const gamesRouter = require("./routes/games");
+// app.use('/games', gamesRouter);
+ app.get('/todos',(req, res) => {
+    res.status(200).send({
+      success: 'true',
+      message: 'todos retrieved successfully',
+      todos: db
+    })
+  });
 
 //Respond with Hello World! on the homepage:
 app.get('/',(req,res) => res.send("hello to Cricketfan clubs"));
