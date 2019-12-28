@@ -1,4 +1,4 @@
-const todos =  [
+let  todos =  [
     {
       id: 1,
       title: "lunch",
@@ -6,4 +6,4 @@ const todos =  [
     }
 ];
 
-export default todos;
+module.export = todos;

@@ -3,7 +3,7 @@ let games = [
     { _id: 2, title: "jr IPL" },
     { _id: 3, title: "Ranaji cup" },
     { _id: 4, title: "state Match" },
-    { _id: 5, title: "Ondday match" },
+    { _id: 5, title: "Oneday match" },
 
   ];
   

@@ -2,26 +2,26 @@ const express = require("express");
 const router = express.Router();
 let games = require("../gamedata");
 
-router.get("/games/list", (req, res) => {
-    res.status(200).send({
-      success: 'true',
-      message: 'list retrieved successfully',
-      data: games,
-    });
-  });
-
-// router.get("/list", async (req, res) => {
-//     try {
-//       res.status(200).json({
-//         data: games
-//       });
-//     } catch (err) {
-//       res.status(400).json({
-//         message: "Some error occured",
-//         err
-//       });
-//     }
+// router.get("/games/list", (req, res) => {
+//     res.status(200).send({
+//       success: 'true',
+//       message: 'list retrieved successfully',
+//       data: games,
+//     });
 //   });
+
+router.get("/list", async (req, res) => {
+    try {
+      res.status(200).json({
+        data: games
+      });
+    } catch (err) {
+      res.status(400).json({
+        message: "Some error occured",
+        err
+      });
+    }
+  });
 
   //
 //   GET a single-match name
